@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>tolkow.</title>
+<style type="text/css">
+<!--
+#lw {   
+  font-weight: bold;
+  font-size: 28pt;
+  font-family: Verdana, sans-serif;
+}
+#msg {
+  font-weight: bold;
+  font-size: 8pt;
+  font-family: Verdana, sans-serif;
+}
+-->
+</style>
+<script type="text/javascript">
+function rand(offset, size) {
+  return Math.floor((Math.random() * size), offset);
+}
+function toHex(n) {
+  var s = n.toString(16);
+  if ((s.length % 2) > 0) {
+    s = "0" + s;
+  }
+  return s;
+}
+function random_color() {
+  r = rand(0,255);
+  g = rand(0,255);
+  b = rand(0,255);
+  return toHex(r) + toHex(g) + toHex(b);
+}
+function recolor() {
+  bg = random_color();
+  fg = random_color();
+  document.body.style.backgroundColor = bg;
+  document.getElementById('lw').style.color = fg;
+  msg = document.getElementById('msg');
+  msg.style.color = bg;
+  msg.innerText = 'font=' + fg + ', background=' + bg;
+}
+</script>
+</head>
+<body>
+<table border="0" height="100%" width="100%" cellpadding="0" cellspacing="0">
+<tr><td align="center" valign="middle"><div id="lw">tolkow.</div></td></tr>
+<tr><td align="center" height="20px"><div id="msg"></div></td></tr>
+</table>
+<script type="text/javascript">recolor();</script>
+</body>
+</html>
